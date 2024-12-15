@@ -1,0 +1,44 @@
+{% extends 'auth_base.html' %}
+<!-- -->
+{% block title %}
+Login
+{% endblock title %}
+<!-- -->
+{% block card_title %}
+Sign In to your account
+{% endblock card_title %}
+<!-- -->
+{% block form %}
+<form action="" class="space-y-4 md:space-y-6">
+  {% csrf_token %}
+  <!-- Non field Erorrs. -->
+  {% if form.non_field_errors %}
+  <div class="text-red-500 text-sm mb-4">
+    {{ form.non_field_errors }}
+  </div>
+  {% endif %}
+
+  <div>
+    <label for="id_login" class="block text-sm font-medium text-gray-700">Email or Username</label>
+    <div class="mt-1">
+      {{ form.login|add_class:"bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" }}
+    </div>
+  </div>
+  <div>
+    <label for="id_password" class="block text-sm font-medium text-gray-700">Password</label>
+    <div class="mt-1">
+      {{ form.password|add_class:"bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" }}
+    </div>
+  </div>
+  <div class="flex items-center justify-between">
+    <div class="text-sm">
+      <a href="{% url 'account_reset_password' %}" class="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      Sign in
+    </button>
+  </div>
+</form>
+{% endblock form %}

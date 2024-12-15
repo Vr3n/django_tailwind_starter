@@ -39,14 +39,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     "django_browser_reload",
     'compressor',
     'django_cotton',
-    'widget_tweaks',
+    'django_htmx',
     'allauth',
     'allauth.account',
     'allauth.socialaccount.providers.google',
+
+    'djmoney',
+    'django_filters',
+    'widget_tweaks',
+
     'users',
+
+    'django.forms'  # should always be last.
 ]
 
 MIDDLEWARE = [
@@ -57,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_htmx.middleware.HtmxMiddleware",
     # Add the account middleware:
     "allauth.account.middleware.AccountMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
