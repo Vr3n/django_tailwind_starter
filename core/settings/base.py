@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django_browser_reload",
     'compressor',
     'django_cotton',
+    'widget_tweaks',
     'allauth',
     'allauth.account',
     'allauth.socialaccount.providers.google',
